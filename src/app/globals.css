@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Tema claro — usado em telas internas com fundo branco */
+    --background: 0 0% 100%;
+    --foreground: 215 45% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 45% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 45% 12%;
+
+    /* Azul-marinho institucional como cor primária */
+    --primary: 215 60% 16%;
+    --primary-foreground: 40 60% 96%;
+
+    --secondary: 215 30% 95%;
+    --secondary-foreground: 215 50% 16%;
+
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Dourado como cor de destaque/acento */
+    --accent: 42 65% 52%;
+    --accent-foreground: 215 50% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 20% 89%;
+    --input: 215 20% 89%;
+    --ring: 42 65% 52%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Tema escuro — navy profundo + dourado, identidade visual principal */
+    --background: 217 55% 8%;
+    --foreground: 40 50% 95%;
+
+    --card: 216 48% 11%;
+    --card-foreground: 40 50% 95%;
+
+    --popover: 216 48% 10%;
+    --popover-foreground: 40 50% 95%;
+
+    --primary: 42 65% 52%;
+    --primary-foreground: 217 55% 8%;
+
+    --secondary: 216 38% 16%;
+    --secondary-foreground: 40 50% 95%;
+
+    --muted: 216 35% 16%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 42 65% 52%;
+    --accent-foreground: 217 55% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 216 35% 18%;
+    --input: 216 35% 18%;
+    --ring: 42 65% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Card com brilho dourado sutil na borda, usado em destaques */
+  .card-premium {
+    @apply relative rounded-xl border border-border bg-card shadow-premium transition-shadow hover:shadow-premium-lg;
+  }
+
+  .badge-gold {
+    @apply inline-flex items-center gap-1 rounded-full bg-gold-gradient px-2.5 py-0.5 text-xs font-semibold text-pib-navy-950 shadow-gold;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-md bg-muted;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-pib-navy-300/40;
+  }
+}
